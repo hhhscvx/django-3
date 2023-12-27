@@ -20,8 +20,8 @@
             {% else %}
               <a href="{% url 'cart:cart_detail' %}">{{ total_items }} Товара, {{ cart.get_total_price }}₽</a>
             {% endif %}
-          {% else %}
-            В корзине пусто
+          {% elif not order %}
+            Корзина пуста.
           {% endif %}
         {% endwith %}
       </div>
