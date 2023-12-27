@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5057a0c9-acfd-4acb-9fb3-c0de22399c69" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myshop/cart/templates/cart/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/cart/templates/cart/detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myshop/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myshop/myshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/myshop/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myshop/myshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/myshop/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myshop/shop/templates/shop/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/shop/templates/shop/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myshop/orders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/orders/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +27,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2a6qDc6qOqJGIvR8H8dOaIlrzOr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -39,14 +38,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/myshop/orders/templates/orders/order" />
