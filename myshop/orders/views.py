@@ -5,6 +5,10 @@ from cart.cart import Cart
 from .tasks import order_created
 from django.urls import reverse
 from django.contrib.admin.views.decorators import staff_member_required
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+import weasyprint
 
 
 def order_create(request):
@@ -34,3 +38,16 @@ def order_create(request):
 def admin_order_detail(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     return render(request, 'admin/orders/order/detail.html', {'order': order})
+
+
+@staff_member_required  # требует чтоб был авторизован админ
+def admin_order_pdf(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    html = render_to_string('orders/order/pdf.html',  # генерирует html код для pdf используя шаблон pdf.html
+                            {'order': order})
+    response = HttpResponse(content_type='application/pdf')  # объект ответа Django в pdf типе
+    response['Content-Disposition'] = f'filename=order_{order_id}.pdf'  # имя файла
+    weasyprint.HTML(string=html).write_pdf(response,  # генерируем pdf из указанного html с исп. указанного css
+                                           stylesheets=[weasyprint.CSS(
+                                               settings.STATIC_ROOT / 'css/pdf.css')])
+    return response

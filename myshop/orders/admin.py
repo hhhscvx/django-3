@@ -20,7 +20,7 @@ def export_to_csv(modeladmin, request, queryset):
     writer = csv.writer(response)
     fields = [field for field in opts.get_fields() if
               not field.many_to_many and not field.one_to_many]  # все поля кроме many_to_many и one_to_many
-    writer.writerow([field.verbose_name for field in fields])
+    writer.writerow([field.verbose_name for field in fields])  # заголовки = поля для заполнения
     for obj in queryset:  # переход по каждому выбранному чекбоксом объекту
         data_row = []
         for field in fields:
@@ -51,12 +51,20 @@ def order_stripe_payment(obj):
 order_stripe_payment.short_description = 'Stripe payment'
 
 
+def order_pdf(obj):
+    url = reverse('orders:admin_order_pdf', args=[obj.id])  # url из представления admin_order_pdf
+    return mark_safe(f'<a href="{url}">PDF</a>')
+
+
+order_pdf.short_description = 'Счет'  # название столбца на админ сайте
+
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name', 'email',
                     'address', 'postal_code', 'city', 'paid',
                     order_stripe_payment, 'created', 'updated',
-                    order_detail]
+                    order_detail, order_pdf]
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]
     actions = [export_to_csv]
