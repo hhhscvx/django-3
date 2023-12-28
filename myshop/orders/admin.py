@@ -1,6 +1,38 @@
 from django.contrib import admin
 from .models import Order, OrderItem
 from django.utils.safestring import mark_safe
+import csv
+import datetime
+from django.http import HttpResponse
+from django.urls import reverse
+
+
+def order_detail(obj):
+    url = reverse('orders:admin_order_detail', args=[obj.id])  # args передаем в представление
+    return mark_safe(f'<a href="{url}">Смотреть</a>')  # url на детальный просмотр заказа
+
+
+def export_to_csv(modeladmin, request, queryset):
+    opts = modeladmin.model._meta
+    content_disposition = f'attachment; filename={opts.verbose_name}.csv'
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = content_disposition
+    writer = csv.writer(response)
+    fields = [field for field in opts.get_fields() if
+              not field.many_to_many and not field.one_to_many]  # все поля кроме many_to_many и one_to_many
+    writer.writerow([field.verbose_name for field in fields])
+    for obj in queryset:  # переход по каждому выбранному чекбоксом объекту
+        data_row = []
+        for field in fields:
+            value = getattr(obj, field.name)  # извлекаем объект и name всех его полей
+            if isinstance(value, datetime.datetime):
+                value = value.strftime('%d/%m/%Y')  # если дата то задать дату как строку
+            data_row.append(value)  # значение добавляется в этот список и экспортируется в csv
+        writer.writerow(data_row)
+    return response
+
+
+export_to_csv.short_description = 'Export to CSV'
 
 
 class OrderItemInline(admin.TabularInline):
@@ -23,6 +55,8 @@ order_stripe_payment.short_description = 'Stripe payment'
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name', 'email',
                     'address', 'postal_code', 'city', 'paid',
-                    order_stripe_payment, 'created', 'updated']
+                    order_stripe_payment, 'created', 'updated',
+                    order_detail]
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]
+    actions = [export_to_csv]

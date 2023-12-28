@@ -7,10 +7,9 @@
     <list default="true" id="5057a0c9-acfd-4acb-9fb3-c0de22399c69" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myshop/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myshop/myshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/myshop/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myshop/orders/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/orders/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myshop/orders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/orders/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myshop/payment/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/payment/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myshop/orders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/orders/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myshop/orders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myshop/orders/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
