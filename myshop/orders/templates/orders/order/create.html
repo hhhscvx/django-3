@@ -10,11 +10,17 @@
       {% for item in cart %}
         <li>
           {{ item.quantity }}x {{ item.product.name }}
-          <span><b>{{ item.total_price }}₽</b></span>
+          <span><b>{{ item.total_price|floatformat:2 }}₽</b></span>  <!-- макс. два знака после запятой -->
         </li>
       {% endfor %}
+      {% if cart.coupon %}
+        <li>
+          "{{ cart.coupon.code }}" скидка {{ cart.coupon.discount }}%
+          <span class="neg">- {{ cart.coupon.get_discount|floatformat:2 }}</span>
+        </li>
+      {% endif %}
     </ul>
-      <p>Всего: {{ cart.get_total_price }}₽</p>
+      <p>Итого: {{ cart.get_total_price_after_discount|floatformat:2 }}₽</p>
   </div>
   <form method="post" class="order-form">
     {{ form.as_p }}
