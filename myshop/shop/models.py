@@ -35,7 +35,7 @@ class Product(TranslatableModel):
     category = models.ForeignKey(Category,
                                  related_name='products',
                                  on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='products/%Y/%m/%d',e
+    image = models.ImageField(upload_to='products/%Y/%m/%d',
                               blank=True)
     price = models.DecimalField(max_digits=10,
                                 decimal_places=2)
